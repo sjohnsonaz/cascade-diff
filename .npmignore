@@ -1,3 +1,6 @@
+# Source directory
+src/
+
 # Dependency directory
 node_modules/
 
