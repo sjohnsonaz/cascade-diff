@@ -37,6 +37,15 @@ describe('Diff', function () {
         var lcs = createLCS(Diff.compare('abcde', 'abdfe'));
         expect(lcs).to.equal('abde');
     });
+
+    it('should have longest runs up front', async () => {
+        let diff = Diff.compare('abcde', 'abccde');
+        let lcs = createLCS(diff);
+        console.log(diff);
+        expect(lcs).to.equal('abcde');
+        expect(diff[0].item).to.equal('a');
+        expect(diff[3].operation).to.equal(1);
+    });
 });
 
 function createLCS<T>(diff: IDiffItem<T>[]) {
